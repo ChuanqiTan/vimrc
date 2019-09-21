@@ -1,6 +1,7 @@
 " 基础配置
 set nu
 let g:loaded_comfortable_motion = 0
+nmap <tab> :b#<cr>
 
 
 
@@ -13,8 +14,9 @@ Plug 'majutsushi/tagbar'
 " 代码辅助
 Plug 'davidhalter/jedi-vim'
 Plug 'scrooloose/nerdcommenter'
-Plug 'psf/black'
 Plug 'ervandew/supertab'
+Plug 'tell-k/vim-autopep8'
+" Plug 'psf/black'  " need vim7+ with python 3.6+"
 " 搜索
 Plug 'wsdjeg/FlyGrep.vim'
 " 美观
@@ -33,6 +35,8 @@ let g:NERDTreeWinPos = "left"
 
 
 " Tagbar
+" brew install ctags-exuberant
+" apt-get install exuberant-ctags
 nmap <F2> :TagbarToggle<CR>
 
 
@@ -63,5 +67,12 @@ let g:indentLine_char='┆'
 let g:indentLine_enabled = 1
 
 
-" Black
-autocmd FileType python noremap <buffer> <F8> :Black<CR>
+" vim-autopep8
+" pip install --upgrade autopep8
+autocmd FileType python noremap <buffer> <F8> :call Autopep8()<CR>
+
+
+" Airline
+let g:airline#extensions#tabline#enabled = 1
+
+
