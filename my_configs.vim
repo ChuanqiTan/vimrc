@@ -2,6 +2,8 @@
 set nu
 let g:loaded_comfortable_motion = 0
 nmap <tab> :b#<cr>
+nmap <F12> :! %<cr>
+set wildignore=*.o,*~,*.pyc
 
 
 
@@ -12,25 +14,28 @@ Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 " 代码结构显示
 Plug 'majutsushi/tagbar'
 " 代码辅助
-Plug 'davidhalter/jedi-vim'
+"Plug 'davidhalter/jedi-vim'
 Plug 'scrooloose/nerdcommenter'
 Plug 'ervandew/supertab'
 Plug 'tell-k/vim-autopep8'
 " Plug 'psf/black'  " need vim7+ with python 3.6+"
 " 搜索
+Plug 'Yggdroot/LeaderF', { 'do': './install.sh' }
 Plug 'wsdjeg/FlyGrep.vim'
 " 美观
 Plug 'godlygeek/tabular'
 Plug 'vim-airline/vim-airline'
 Plug 'yggdroot/indentline'
 Plug 'kien/rainbow_parentheses.vim'
+Plug 'kshenoy/vim-signature'
+Plug 'tomasr/molokai'
 " ========================================
 call plug#end()
 
 
 
 " ACK
-nmap <F3> :Ack
+nmap <F3> :Ack 
 
 
 " NERDTree
@@ -49,16 +54,14 @@ nmap <F2> :TagbarToggle<CR>
 " 	brew install the_silver_searcher
 " 	sudo apt-get install silversearcher-ag
 " 	yum install the_silver_searcher
-let g:ctrlp_custom_ignore = { \ 
-    'dir':  '\v[\/]\.(git|hg|svn)$', \ 
-    'file': '\v\.(exe|so|dll|pyc|o)$', \ 
-    'link': 'some_bad_symbolic_links', \ 
-}
+nnoremap <C-b> :CtrlPBufTagAll<cr>
+nnoremap <C-c> :CtrlPBufTag<cr>
+let g:ctrlp_custom_ignore = { 'dir':  '\v[\/]\.(git|hg|svn)$', 'file': '\v\.(exe|so|dll|pyc|o|jpg|a)$', 'link': 'some_bad_symbolic_links' }
 if executable('ag')
   " Use Ag over Grep
   set grepprg=ag\ --nogroup\ --nocolor
   " Use ag in CtrlP for listing files.
-  let g:ctrlp_user_command = 'ag %s -l --nocolor -g "" --ignore *.pyc'
+  let g:ctrlp_user_command = 'ag %s -l --nocolor -g "" --ignore "*.pyc"'
   " Ag is fast enough that CtrlP doesn't need to cache
   "let g:ctrlp_use_caching = 1   " ceph is very slow"
 endif
@@ -86,9 +89,8 @@ let g:airline#extensions#tabline#enabled = 1
 
 
 " jedi-vim
-let g:jedi#goto_assignments_command = "<C-g>"
+nmap <C-g> :call jedi#goto_assignments()<CR>
 
 
 " FlyGrep
-nmap <C-b> :FlyGrep<CR>
-
+nmap <C-a> :FlyGrep<CR>    " A 的按键表示在 all 文件中搜索
