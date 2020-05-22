@@ -4,6 +4,8 @@ let g:loaded_comfortable_motion = 0
 nmap <tab> :b#<cr>
 nmap <F12> :! %<cr>
 set wildignore=*.o,*~,*.pyc
+set foldlevelstart=99  " 不要折叠
+set concealcursor=n   " only concel in normal mode
 
 
 
@@ -14,7 +16,7 @@ Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 " 代码结构显示
 Plug 'majutsushi/tagbar'
 " 代码辅助
-"Plug 'davidhalter/jedi-vim'
+Plug 'davidhalter/jedi-vim'
 Plug 'scrooloose/nerdcommenter'
 Plug 'ervandew/supertab'
 Plug 'tell-k/vim-autopep8'
