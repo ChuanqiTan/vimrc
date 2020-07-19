@@ -7,6 +7,8 @@ set wildignore=*.o,*~,*.pyc
 set foldlevelstart=99  " 不要折叠
 set concealcursor=n   " only concel in normal mode
 
+nmap <F4> :bp<cr>
+nmap <F5> :bn<cr>
 
 
 call plug#begin('~/.vim_runtime/vim-plug-plugged')
@@ -91,8 +93,9 @@ let g:airline#extensions#tabline#enabled = 1
 
 
 " jedi-vim
-nmap <C-g> :call jedi#goto_assignments()<CR>
+nmap <C-g> :call jedi#goto_definitions()<CR>
 
 
 " FlyGrep
-nmap <C-a> :FlyGrep<CR>    " A 的按键表示在 all 文件中搜索
+" A 的按键表示在 all 文件中搜索
+nmap <C-a> :FlyGrep<CR>
