@@ -9,6 +9,7 @@ set concealcursor=n   " only concel in normal mode
 
 nmap <F4> :bp<cr>
 nmap <F5> :bn<cr>
+nmap <C-x> :tabclose<CR>
 
 
 call plug#begin('~/.vim_runtime/vim-plug-plugged')
@@ -93,7 +94,7 @@ let g:airline#extensions#tabline#enabled = 1
 
 
 " jedi-vim
-nmap <C-g> :call jedi#goto_definitions()<CR>
+nmap <C-g> :call jedi#goto_assignments()<CR>
 
 
 " FlyGrep
