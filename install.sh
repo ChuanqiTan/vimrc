@@ -15,3 +15,5 @@ git clone https://github.com/scrooloose/nerdcommenter $PLUGINS_DIR/nerdcommenter
 # install
 ln -sf $SHELL_FOLDER ~/.vim_runtime
 sh install_awesome_vimrc.sh
+
+echo "run :PlugInstall & PlugUpdate in VIM"
