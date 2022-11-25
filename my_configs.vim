@@ -38,6 +38,10 @@ Plug 'tomasr/molokai'
 call plug#end()
 
 
+" Make vim-airline works well
+set t_Co=256
+let g:airline_powerline_fonts = 1
+
 
 " ACK
 nmap <F3> :Ack 
