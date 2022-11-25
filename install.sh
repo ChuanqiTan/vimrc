@@ -22,3 +22,5 @@ sh install_awesome_vimrc.sh
 
 
 vim +PlugInstall
+
+sudo apt-get install -y exuberant-ctags silversearcher-ag
