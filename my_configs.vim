@@ -41,6 +41,8 @@ call plug#end()
 " Make vim-airline works well
 set t_Co=256
 let g:airline_powerline_fonts = 1
+let g:airline#extensions#disable_rtp_load=1
+
 
 
 " ACK
